@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21507" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+    <device id="retina6_12" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21505"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--View Controller-->
+        <scene sceneID="tne-QT-ifu">
+            <objects>
+                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="CombineTandCExample" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="I accept the Terms &amp; Conditions" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jvs-SP-ydb">
+                                <rect key="frame" x="42" y="102" width="243" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="I accept the Privacy Policy" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vWs-bH-LfL">
+                                <rect key="frame" x="42" y="141" width="243" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="TtN-3t-MJg">
+                                <rect key="frame" x="303" y="97" width="51" height="31"/>
+                                <connections>
+                                    <action selector="toggledTerms:" destination="BYZ-38-t0r" eventType="valueChanged" id="0vb-5h-AiV"/>
+                                </connections>
+                            </switch>
+                            <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="454-AK-cVy">
+                                <rect key="frame" x="301" y="136" width="51" height="31"/>
+                                <connections>
+                                    <action selector="toggledPrivacy:" destination="BYZ-38-t0r" eventType="valueChanged" id="fo2-B4-4sM"/>
+                                </connections>
+                            </switch>
+                            <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter your name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="M5d-Uc-QDa">
+                                <rect key="frame" x="42" y="197" width="310" height="34"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                                <connections>
+                                    <action selector="nameUpdated:" destination="BYZ-38-t0r" eventType="editingChanged" id="ida-gu-oXc"/>
+                                    <outlet property="delegate" destination="BYZ-38-t0r" id="evD-Ve-IAb"/>
+                                </connections>
+                            </textField>
+                            <button opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hrg-Xb-j2p">
+                                <rect key="frame" x="120" y="239" width="153" height="35"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="153" id="6uH-fB-ZuU"/>
+                                    <constraint firstAttribute="height" constant="35" id="z7v-Ha-OzI"/>
+                                </constraints>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="filled" title="Submit"/>
+                            </button>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="vWs-bH-LfL" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="42" id="27K-zd-9qX"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="M5d-Uc-QDa" secondAttribute="trailing" constant="41" id="4sX-D4-w6O"/>
+                            <constraint firstItem="vWs-bH-LfL" firstAttribute="top" secondItem="jvs-SP-ydb" secondAttribute="bottom" constant="18" id="Cj6-Tz-icN"/>
+                            <constraint firstItem="TtN-3t-MJg" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="jvs-SP-ydb" secondAttribute="trailing" constant="18" id="KI0-sL-U0t"/>
+                            <constraint firstItem="TtN-3t-MJg" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="38" id="Oic-8N-9V9"/>
+                            <constraint firstItem="hrg-Xb-j2p" firstAttribute="top" secondItem="M5d-Uc-QDa" secondAttribute="bottom" constant="8" symbolic="YES" id="PMg-d1-RRF"/>
+                            <constraint firstItem="vWs-bH-LfL" firstAttribute="height" secondItem="jvs-SP-ydb" secondAttribute="height" id="QdR-gJ-U9r"/>
+                            <constraint firstItem="M5d-Uc-QDa" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="42" id="VEZ-bi-h4I"/>
+                            <constraint firstItem="M5d-Uc-QDa" firstAttribute="top" secondItem="vWs-bH-LfL" secondAttribute="bottom" constant="35" id="XOC-2z-cLS"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="TtN-3t-MJg" secondAttribute="trailing" constant="41" id="XiB-n0-JX9"/>
+                            <constraint firstItem="454-AK-cVy" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="vWs-bH-LfL" secondAttribute="trailing" constant="8" symbolic="YES" id="YUS-wB-gqe"/>
+                            <constraint firstItem="hrg-Xb-j2p" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="fkO-7Z-CeL"/>
+                            <constraint firstItem="vWs-bH-LfL" firstAttribute="width" secondItem="jvs-SP-ydb" secondAttribute="width" id="gxY-Os-uvs"/>
+                            <constraint firstItem="jvs-SP-ydb" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="43" id="lNk-wU-6IT"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="454-AK-cVy" secondAttribute="trailing" constant="43" id="lik-rD-tF0"/>
+                            <constraint firstItem="454-AK-cVy" firstAttribute="top" secondItem="TtN-3t-MJg" secondAttribute="bottom" constant="8" symbolic="YES" id="r7F-SO-3aX"/>
+                            <constraint firstItem="jvs-SP-ydb" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="42" id="tcZ-5a-vCU"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="nameTextField" destination="M5d-Uc-QDa" id="28o-Qs-bl4"/>
+                        <outlet property="privacySwitch" destination="454-AK-cVy" id="omZ-0O-Fe9"/>
+                        <outlet property="submitButton" destination="hrg-Xb-j2p" id="l6b-KJ-bJP"/>
+                        <outlet property="termsSwitch" destination="TtN-3t-MJg" id="0GA-m1-qYO"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="20.610687022900763" y="3.5211267605633805"/>
+        </scene>
+    </scenes>
+    <resources>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>
