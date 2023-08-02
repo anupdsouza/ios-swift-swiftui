@@ -42,12 +42,8 @@ class DownloadImageAsyncLoader {
     
     /// Image download using async/await
     func downloadImageAsync() async throws -> UIImage? {
-        do {
-            let (data, response) = try await URLSession.shared.data(from: url, delegate: nil)
-            return handleResponse(data: data, response: response)
-        } catch {
-            throw error
-        }
+        let (data, response) = try await URLSession.shared.data(from: url, delegate: nil)
+        return handleResponse(data: data, response: response)
     }
 }
 
@@ -96,11 +92,11 @@ struct DownloadImageAsync: View {
                     .frame(width: 250, height: 250)
             }
         }
-        .onAppear {
+        .onAppear { [weak viewModel] in // prevent leak inside Task
 //            viewModel.fetchImage()
 //            viewModel.fetchImageWithCombine()
             Task {
-                await viewModel.fetchImageAsync()
+                await viewModel?.fetchImageAsync()
             }
         }
     }
