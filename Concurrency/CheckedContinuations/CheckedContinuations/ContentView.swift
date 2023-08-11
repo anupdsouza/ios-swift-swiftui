@@ -22,6 +22,20 @@ struct DataLoader {
             }.resume()
         }
     }
+    
+    func getSystemImage(_ name: String, completion: @escaping(_ image: UIImage) -> ()) {
+        DispatchQueue.main.asyncAfter(deadline: .now() + 2.0) {
+            completion(UIImage(systemName: name)!)
+        }
+    }
+    
+    func getHeartSystemImage() async -> UIImage {
+        await withCheckedContinuation { continuation in
+            getSystemImage("heart.fill") { image in
+                continuation.resume(returning: image)
+            }
+        }
+    }
 }
 
 class ViewModel: ObservableObject {
@@ -44,6 +58,16 @@ class ViewModel: ObservableObject {
             print(error)
         }
     }
+    
+    func fetchSystemImage() {
+        dataLoader.getSystemImage("heart.fill") { [weak self] image in
+            self?.image = image
+        }
+    }
+    
+    func fetchHeartSystemImage() async {
+        self.image = await dataLoader.getHeartSystemImage()
+    }
 }
 
 struct ContentView: View {
@@ -59,7 +83,9 @@ struct ContentView: View {
         }
         .padding()
         .task { [weak viewModel] in
-            await viewModel?.fetchImage()
+            //await viewModel?.fetchImage()
+            //await viewModel?.fetchSystemImage()
+            await viewModel?.fetchHeartSystemImage()
         }
     }
 }
